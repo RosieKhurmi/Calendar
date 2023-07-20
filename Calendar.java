@@ -1,5 +1,6 @@
 // Rosie Khurmi
 // July 19, 2023
+// This code prints the calendar of any month of year chosen through user input
 
 import java.util.Scanner;
 
