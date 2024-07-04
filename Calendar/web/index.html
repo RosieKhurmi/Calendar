@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calendar</title>
+    <link rel="stylesheet" href="cs/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<div class="container" id="mainContainer">
+    <div class="title"><h1>Calendar Generator</h1></div>
+    <div class="subtitle"><h3>Any Year Any Month</h3></div>
+
+    <div class="header"><p>Select which calendar you would like</p></div>
+    <div class="bigButton"><button onclick="yearCalendar()">Year</button></div>
+    <div class="bigButton"><button onclick="monthCalendar()">Month</button></div>
+</div>
+
+<div class="month" id="monthContainer" style="display:none;">
+    <div><h1>Monthly Calendar</h1></div>
+
+    <div id="yearSelection">
+        <label for="yearInput">Enter a year:</label>
+        <input type="number" id="yearInput" pattern="\d{4}">
+        <button id="selectYearBtn">Select Year</button>
+    </div>
+
+    <div id="monthSelection">
+        <label for="monthSelect">Select a month:</label>
+        <select id="monthSelect">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+        <button onclick="selectMonth()">Select Month</button>
+    </div>
+    <div class="bigButton"><button onclick="makeMonth()">Create Calendar</button></div>
+
+</div>
+<div class="monthCalendar" id="monthCalendar" style="display:none;">
+
+    <h1>Hello</h1>
+    <div class="bigButton"><button onclick="exit()">New Calendar</button></div>
+
+</div>
+
+<div class="year" id="yearContainer" style="display:none;">
+
+    <div><h1>Yearly Calendar</h1></div>
+
+    <div id="yearChoice">
+        <label for="yearIn">Enter a year:</label>
+        <input type="number" id="yearIn" pattern="\d{4}">
+        <button id="selectYearButton">Select Year</button>
+    </div>
+
+    <div class="bigButton"><button onclick="makeYear()">Create Calendar</button></div>
+
+</div>
+<div class="yearCalendar" id="yearCalendar" style="display:none;">
+
+    <h1>Hello</h1>
+    <div class="bigButton"><button onclick="exit()">New Calendar</button></div>
+
+</div>
+
+</body>
+</html>
