@@ -14,35 +14,9 @@ function fetchCalendar(url, displayFunction) {
         });
 }
 
-// Function to display the month calendar
-function displayMonthCalendar(monthData) {
-    const calendarElement = document.getElementById('calendar');
-    calendarElement.innerHTML = ''; // Clear any previous content
+let monthValue;
+let yearValue;
 
-    monthData.forEach(week => {
-        const weekRow = document.createElement('tr');
-        week.forEach(day => {
-            const dayCell = document.createElement('td');
-            dayCell.textContent = day;
-            weekRow.appendChild(dayCell);
-        });
-        calendarElement.appendChild(weekRow);
-    });
-}
-
-function selectMonth() {
-    const month = document.getElementById('monthSelect').value;
-    const year = document.getElementById('yearInput').value;
-
-    if (month && year) {
-        const url = `/api/month?month=${month}&year=${year}`;
-        fetchCalendar(url, displayMonthCalendar);
-    } else {
-        alert("Please select both month and year");
-    }
-}
-
-// Function to create the calendar of a month
 function monthCalendar() {
     // Show the month container
     document.getElementById('monthContainer').style.display = 'block';
@@ -50,14 +24,49 @@ function monthCalendar() {
     document.getElementById('mainContainer').style.marginTop = '20px';
 }
 
-// Function to make a month calendar
-function makeMonth() {
+function selectMonth() {
 
-    document.getElementById('monthCalendar').style.display = 'block';
+    monthValue = document.getElementById('monthSelect').value;
 
 }
 
-// Function to exit and return to selection screen
+function selectYear() {
+
+    yearValue = document.getElementById('yearSelect').value;
+
+}
+
+function makeMonth() {
+
+    selectMonth();
+    selectYear();
+    const url = `http://localhost:8080/Calendar-1.0-SNAPSHOT/api/month/calendar?month=${monthValue}&year=${yearValue}`;
+
+    document.getElementById('monthCalendar').style.display = 'block';
+
+    fetchCalendar(url, displayCalendar);
+
+}
+
+function displayCalendar(data) {
+    const calendarContainer = document.getElementById('calendar');
+    calendarContainer.innerHTML = ''; // Clear any previous content
+
+    const table = document.createElement('table');
+
+    data.forEach(week => {
+        const row = document.createElement('tr');
+        week.forEach(day => {
+            const cell = document.createElement('td');
+            cell.textContent = day;
+            row.appendChild(cell);
+        });
+        table.appendChild(row);
+    });
+
+    calendarContainer.appendChild(table);
+}
+
 function exit() {
     // Hide the other containers
     document.getElementById('monthContainer').style.display = 'none';
@@ -66,6 +75,3 @@ function exit() {
     // Reset the main container margin
     document.getElementById('mainContainer').style.marginTop = '0';
 }
-
-
-

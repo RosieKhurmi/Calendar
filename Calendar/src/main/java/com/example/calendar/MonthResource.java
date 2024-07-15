@@ -47,6 +47,7 @@ public class MonthResource {
     }
 
     @GET
+    @Path("calendar")
     @Produces(MediaType.APPLICATION_JSON)
     public Response returnMonth(@QueryParam("month") String month, @QueryParam("year") int year) {
 
@@ -63,5 +64,4 @@ public class MonthResource {
 
     }
 
-    // @QueryParam("month") String monthName, @QueryParam("year") int year
 }
