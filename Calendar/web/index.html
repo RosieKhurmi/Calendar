@@ -23,7 +23,7 @@
 
     <div id="yearSelection">
         <label for="yearSelect">Enter a year:</label>
-        <input type="number" id="yearSelect" pattern="\d{4}">
+        <input type="number" id="yearSelect" name="year" min="1000" max="9999">
         <button onclick="selectYear()" >Select Year</button>
     </div>
 
@@ -56,25 +56,25 @@
 
 </div>
 
-<!--<div class="year" id="yearContainer" style="display:none;">-->
+<div class="year" id="yearContainer" style="display:none;">
 
-<!--    <div><h1>Yearly Calendar</h1></div>-->
+    <div><h1>Yearly Calendar</h1></div>
 
-<!--    <div id="yearChoice">-->
-<!--        <label for="yearIn">Enter a year:</label>-->
-<!--        <input type="number" id="yearIn" pattern="\d{4}">-->
-<!--        <button id="selectYearButton" onclick="selectYear()">Select Year</button>-->
-<!--    </div>-->
+    <div id="yearChoice">
+        <label for="yearIn">Enter a year:</label>
+        <input type="number" id="yearIn" min="1000" max="9999">
+        <button id="selectYearButton" onclick="selectYear()">Select Year</button>
+    </div>
 
-<!--    <div class="bigButton"><button onclick="makeYear()">Create Calendar</button></div>-->
+    <div class="bigButton"><button onclick="makeYear()">Create Calendar</button></div>
 
-<!--</div>-->
-<!--<div class="yearCalendar" id="yearCalendar" style="display:none;">-->
+</div>
+<div class="yearCalendar" id="yearCalendar" style="display:none;">
 
-<!--    <h1>Hello</h1>-->
-<!--    <div class="bigButton"><button onclick="exit()">New Calendar</button></div>-->
+    <div id="yCalendar"></div>
+    <div class="bigButton"><button onclick="exit()">New Calendar</button></div>
 
-<!--</div>-->
+</div>
 
 </body>
 </html>
