@@ -13,9 +13,11 @@
     <div class="title"><h1>Calendar Generator</h1></div>
     <div class="subtitle"><h3>Any Year Any Month</h3></div>
 
-    <div class="header"><p>Select which calendar you would like</p></div>
-    <div class="bigButton"><button onclick="yearCalendar()">Year</button></div>
-    <div class="bigButton"><button onclick="monthCalendar()">Month</button></div>
+    <div class="label"><h3>Select which calendar you would like</h3></div>
+    <div class="bigButton">
+        <button onclick="yearCalendar()">Year</button>
+        <button onclick="monthCalendar()">Month</button>
+    </div>
 </div>
 
 <div class="month" id="monthContainer" style="display:none;">
@@ -45,7 +47,7 @@
         </select>
         <button onclick="selectMonth()">Select Month</button>
     </div>
-    <div class="bigButton"><button onclick="makeMonth()">Create Calendar</button></div>
+    <div class="smallButton"><button onclick="makeMonth()">Create Calendar</button></div>
 
 </div>
 
@@ -58,15 +60,13 @@
 
 <div class="year" id="yearContainer" style="display:none;">
 
-    <div><h1>Yearly Calendar</h1></div>
+    <h1>Yearly Calendar</h1>
 
-    <div id="yearChoice">
-        <label for="yearIn">Enter a year:</label>
-        <input type="number" id="yearIn" min="1000" max="9999">
-        <button id="selectYearButton" onclick="selectYear()">Select Year</button>
-    </div>
+    <label for="yearIn">Enter a year:</label>
+    <input type="number" id="yearIn" min="1000" max="9999">
+    <button id="selectYearButton" onclick="selectYear()">Select Year</button>
 
-    <div class="bigButton"><button onclick="makeYear()">Create Calendar</button></div>
+    <div class="smallButton"><button onclick="makeYear()">Create Calendar</button></div>
 
 </div>
 <div class="yearCalendar" id="yearCalendar" style="display:none;">
