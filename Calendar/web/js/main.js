@@ -107,7 +107,7 @@ function makeYear() {
     });
 }
 
-// displayCalendar makes a monthly or yearly calendar
+// displayCalendar() makes a monthly or yearly calendar
 /**
  *
  * @param data

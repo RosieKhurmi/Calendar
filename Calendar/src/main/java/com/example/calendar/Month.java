@@ -60,7 +60,7 @@ public class Month {
 
         // Set this.days
         int total = daysInMonth();
-        int start = dayOfWeek();
+        int start = dayOfWeek(); // 4
 
         // Count of each day in the month
         int counter = 1;
@@ -83,7 +83,7 @@ public class Month {
                     this.days[i][j] = counter;
                     counter ++;
 
-                    if (counter > total) {
+                    if (counter == total) {
                         return;
                     }
 
