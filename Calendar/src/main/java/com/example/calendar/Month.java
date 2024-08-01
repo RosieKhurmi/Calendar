@@ -3,6 +3,7 @@ package com.example.calendar;
 public class Month {
 
     private int month, year;
+
     private int[][] days = new int[6][7];
 
     public Month(int month, int year) {
@@ -15,7 +16,7 @@ public class Month {
         return this.month;
     }
     public int getYear() {
-        return this.month;
+        return this.year;
     }
     public int[][] getDays() {
         return this.days;
@@ -47,7 +48,7 @@ public class Month {
 
         int [] total_days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        if (this.month == 2 || leapYear()) {
+        if (this.month == 2 && leapYear()) {
             return total_days[this.month - 1] + 1;
         } else {
             return total_days[this.month - 1];
@@ -80,12 +81,13 @@ public class Month {
             } else {
 
                 for (int j = 0; j < 7; j++) {
-                    this.days[i][j] = counter;
-                    counter ++;
 
-                    if (counter == total) {
+                    if (counter > total) {
                         return;
                     }
+
+                    this.days[i][j] = counter;
+                    counter ++;
 
                 }
 
