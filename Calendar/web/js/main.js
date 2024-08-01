@@ -42,6 +42,7 @@ function selectMonth() {
     // Get values from HTML
     monthValue = document.getElementById('monthSelect').value;
     yearValue = document.getElementById('yearSelect').value;
+    console.log(monthValue, " ", yearValue)
 
 }
 
@@ -67,7 +68,6 @@ function makeMonth() {
 
     // Show month and calendar
     document.getElementById('monthCalendar').style.display = 'block';
-
     fetchCalendar(url, displayCalendar, 'month', monthValue, yearValue);
 
 }
@@ -82,7 +82,7 @@ function yearCalendar() {
 }
 
 // makeYear() outputs the yearly calendar
-function makeYear() {
+async function makeYear() {
     selectYear();
 
     if (!yearValue || yearValue < 1000 || yearValue > 9999) {
@@ -101,10 +101,21 @@ function makeYear() {
     const calendarContainer = document.getElementById('yCalendar');
     calendarContainer.innerHTML = ''; // Clear any previous content
 
-    months.forEach(month => {
+    // fetchMonthCalendar fetches the month calendar from the backend
+    const fetchMonthCalendar = (month) => {
         const url = `http://localhost:8080/Calendar-1.0-SNAPSHOT/api/month/calendar?month=${month}&year=${yearValue}`;
-        fetchCalendar(url, displayCalendar, 'year', month, yearValue);
-    });
+        return new Promise((resolve) => {
+            fetchCalendar(url, (data) => {
+                displayCalendar(data, 'year', month, yearValue);
+                resolve(); // Resolve the promise when displayCalendar completes
+            }, 'year', month, yearValue);
+        });
+    };
+
+    // Display each month
+    for (const month of months) {
+        await fetchMonthCalendar(month);
+    }
 }
 
 // displayCalendar() makes a monthly or yearly calendar

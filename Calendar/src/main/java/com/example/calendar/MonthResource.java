@@ -58,7 +58,7 @@ public class MonthResource {
 
         return Response.status(200)
                 .header("Content-Type", "application/json")
-                .header("Access-Control-Allow-Origin", "http://localhost:63342")
+                .header("Access-Control-Allow-Origin", "http://localhost:63343")
                 .entity(monthCalendar.getDays())
                 .build();
 
